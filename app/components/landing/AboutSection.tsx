@@ -67,7 +67,6 @@ export default function AboutSection() {
       <Timeline
         data={data}
         title={timeline.title}
-        description={timeline.description}
       />
     </section>
   );

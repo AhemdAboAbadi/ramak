@@ -17,7 +17,6 @@ import {
   Sparkles,
   Star,
   ArrowRight,
-  Zap,
   TrendingUp,
 } from "lucide-react";
 import {
@@ -28,6 +27,7 @@ import {
   useSpring,
   type Variants,
 } from "framer-motion";
+import SectionHeader from "@/app/components/landing/SectionHeader";
 
 export type AboutUsServiceItem = {
   icon: React.ReactNode;
@@ -199,7 +199,7 @@ export default function AboutUsSection({
       id={id}
       ref={sectionRef}
       dir={dir}
-      className={`w-full py-24 px-4 bg-[var(--brown)] text-[#f7f7f4] overflow-hidden relative ${className}`.trim()}
+      className={`w-full pb-24 bg-[var(--brown)] text-[#f7f7f4] overflow-hidden relative ${className}`.trim()}
     >
       <motion.div
         className="absolute top-20 left-10 w-64 h-64 rounded-full bg-[var(--green)]/20 blur-3xl"
@@ -236,54 +236,39 @@ export default function AboutUsSection({
       />
 
       <motion.div
-        className="container mx-auto max-w-6xl relative z-10"
+        className="relative z-10"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         {showHeader ? (
-          <>
-            <motion.div
-              className="flex flex-col items-center mb-6"
-              variants={itemVariants}
-            >
-              <motion.span
-                className="text-[var(--green)] font-medium mb-2 flex items-center gap-2"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <Zap className="w-4 h-4" />
-                {eyebrow}
-              </motion.span>
-              <h2 className="text-4xl md:text-5xl font-light mb-4 text-center text-[#f7f7f4]">
-                {title}
-                {titleEm ? (
-                  <em className="not-italic font-medium text-[var(--green)]">
-                    {" "}
-                    {titleEm}
-                  </em>
-                ) : null}
-              </h2>
-              <motion.div
-                className="w-24 h-1 bg-[var(--green)]"
-                initial={{ width: 0 }}
-                animate={{ width: 96 }}
-                transition={{ duration: 1, delay: 0.5 }}
-              />
-            </motion.div>
-
-            <motion.p
-              className="text-center max-w-2xl mx-auto mb-16 text-white/70"
-              variants={itemVariants}
-            >
-              {description}
-            </motion.p>
-          </>
+          <motion.div variants={itemVariants}>
+            <SectionHeader
+              title={
+                <>
+                  {title}
+                  {titleEm ? (
+                    <em className="not-italic font-bold text-[var(--gold)]">
+                      {" "}
+                      {titleEm}
+                    </em>
+                  ) : null}
+                </>
+              }
+              subtitle={eyebrow || undefined}
+            />
+            {description ? (
+              <p className="mx-auto mt-0 mb-8 max-w-7xl px-4 text-start text-white/70 md:mb-12 md:px-8 lg:px-10">
+                {description}
+              </p>
+            ) : null}
+          </motion.div>
         ) : null}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          <div className="space-y-16">
+        <div className="container relative mx-auto max-w-7xl px-4 md:px-8 lg:px-10">
+        {/* Keep column positions fixed in both locales; text inherits section dir via children. */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative" dir="ltr">
+          <div className="space-y-16" dir={dir}>
             {services
               .filter((service) => service.position === "left")
               .map((service, index) => (
@@ -300,7 +285,7 @@ export default function AboutUsSection({
               ))}
           </div>
 
-          <div className="flex justify-center items-center order-first md:order-0 mb-8 md:mb-0">
+          <div className="flex justify-center items-center order-first md:order-0 mb-8 md:mb-0" dir={dir}>
             <motion.div className="relative w-full max-w-xs" variants={itemVariants}>
               <motion.div
                 className="rounded-md overflow-hidden shadow-xl relative aspect-3/4"
@@ -330,7 +315,7 @@ export default function AboutUsSection({
                     whileTap={{ scale: 0.95 }}
                   >
                     {portfolioLabel}{" "}
-                    <ArrowRight className="w-4 h-4 text-[var(--green)]" />
+                    <ArrowRight className="w-4 h-4 text-[var(--green)] rtl:rotate-180" />
                   </motion.a>
                 </motion.div>
               </motion.div>
@@ -384,7 +369,7 @@ export default function AboutUsSection({
             </motion.div>
           </div>
 
-          <div className="space-y-16">
+          <div className="space-y-16" dir={dir}>
             {services
               .filter((service) => service.position === "right")
               .map((service, index) => (
@@ -444,10 +429,11 @@ export default function AboutUsSection({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {ctaLabel} <ArrowRight className="w-4 h-4" />
+              {ctaLabel} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
             </motion.a>
           </motion.div>
         ) : null}
+        </div>
       </motion.div>
     </section>
   );

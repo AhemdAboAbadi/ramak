@@ -45,9 +45,9 @@ const sstArabic = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Ramak | Real Estate",
+  title: "رَمَك | عقارات",
   description:
-    "Ramak develops residential and investment spaces where stability settles and authenticity speaks.",
+    "رَمَك تطوّر مساحات سكنية واستثمارية حيث يَرْمَكُ الاستقرار وتتحدّث الأصالة.",
   icons: {
     icon: "/images/icon-web.png",
     apple: "/images/icon-web.png",
@@ -60,11 +60,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var l=localStorage.getItem("elysian-locale");if(l!=="ar"&&l!=="en"){l=navigator.language.toLowerCase().indexOf("ar")===0?"ar":"en"}document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr"}catch(e){}})();`,
+            __html: `(function(){try{var l=localStorage.getItem("elysian-locale");if(l!=="ar"&&l!=="en"){l="ar"}document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr"}catch(e){document.documentElement.lang="ar";document.documentElement.dir="rtl"}})();`,
           }}
         />
       </head>

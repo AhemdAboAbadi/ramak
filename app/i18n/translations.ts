@@ -1,6 +1,6 @@
-export type Locale = "en" | "ar";
+export type Locale = "ar" | "en";
 
-export const locales: Locale[] = ["en", "ar"];
+export const locales: Locale[] = ["ar", "en"];
 
 export const translations = {
   en: {
@@ -26,6 +26,8 @@ export const translations = {
       ctaPrimary: "Book a viewing",
       ctaSecondary: "See details",
       scrollHint: "Scroll to enter",
+      typewriterPrimary: "Where stability settles,",
+      typewriterSecondary: "authenticity speaks.",
       insideEyebrow: "You are now inside Ramak",
       insideTitle: "A lobby that sells the feeling before the square meters.",
       features: [
@@ -36,9 +38,14 @@ export const translations = {
     },
     services: {
       pill: "WHAT WE DO",
-      titleBefore: "Six ways we serve ",
-      titleEm: "you.",
-      text: "From land potential to partnerships, we guide every stage of real estate development with clear studies, integrated concepts, and disciplined delivery.",
+      titleBefore: "Our Services",
+      titleEm: "",
+      text: "",
+      imageAlt: "Featured real estate project",
+      portfolioLabel: "Our Projects",
+      ctaTitle: "Ready to turn your idea into a project?",
+      ctaText: "Let's create something beautiful and valuable together.",
+      ctaLabel: "Start with us",
       items: [
         {
           icon: "01",
@@ -219,30 +226,34 @@ export const translations = {
     },
     projects: {
       pill: "OUR PROJECTS",
-      title: "Our projects.",
+      title: "Our projects",
       titleBefore: "Unleash the power of",
       titleEm: "Our Projects",
       items: [
         {
-          titleBefore: "Step inside",
+          name: "Al Jazeera Project",
+          titleBefore: "Project",
           titleEm: "Al Jazeera",
-          text: "A destination crafted for lasting value — architecture, experience, and place working as one.",
+          text: "Al Jazeera Project is located in Madinah, south of the Prophet’s Mosque, and stands as an integrated destination that brings together hospitality, retail, and services within a large-scale mixed-use real estate development. The project includes Al Jazeera Hotel, Al Baik restaurant, and a diverse range of commercial units available for lease, alongside extensive parking and supporting facilities that serve both visitors and investors. With its strategic location and comprehensive design, the project offers a modern experience close to the Prophet’s Mosque and promising investment and commercial opportunities in the heart of Madinah.",
           imageAlt: "Al Jazeera real estate project",
           image: "/project/prod2.jpg",
         },
         {
-          titleBefore: "Unleash the power of",
-          titleEm: "Our Projects",
-          text: "Scroll to step inside the destinations we shape — commercial, residential, and mixed-use.",
-          imageAlt: "Featured real estate project interior",
+          name: "Adventure Land Project",
+          titleBefore: "Project",
+          titleEm: "Adventure Land",
+          text: "Adventure Land Project in King Fahd Central Park in Madinah is an integrated entertainment and sports destination, designed to combine adventure and leisure in a vibrant natural setting. The project features a wide range of activities and facilities, including padel courts, a climbing wall, play areas, restaurants and cafés, as well as outdoor seating and calm natural spaces suited to families and visitors of all ages. It delivers an experience that brings together sport, entertainment, and nature, making it one of Madinah’s leading modern leisure destinations.",
+          imageAlt: "Adventure Land entertainment project",
           image: "/project/prod1.jpg",
         },
       ],
     },
     partners: {
       pill: "STRATEGIC PARTNERS",
-      title: "Strategic partners.",
-      text: "This section is coming soon.",
+      titleBefore: "Our ",
+      titleEm: "partners.",
+      title: "Our partners.",
+      text: "We build strategic partnerships founded on trust and complementary expertise, creating greater opportunities and lasting value together.",
     },
     howWeWork: {
       pill: "HOW WE WORK",
@@ -259,10 +270,10 @@ export const translations = {
       pill: "CONTACT",
       titleBefore: "Tell us what you’re ",
       titleEm: "looking for.",
-      text: "Share a few details and a senior partner will get back to you shortly.",
-      cardTitle: "Get in touch",
+      text: "Leave your details and one of our partners will get back to you soon.",
+      cardTitle: "Contact us",
       cardDescription:
-        "If you have any questions regarding our services or need help, please fill out the form here. We do our best to respond within 1 business day.",
+        "If you have any questions about our services or need help, fill out the form here. We do our best to respond within one business day.",
       name: "Name",
       email: "Email",
       phone: "Phone",
@@ -273,7 +284,7 @@ export const translations = {
       messagePlaceholder: "Property type, location, budget…",
       submit: "Send message",
       sending: "Sending…",
-      success: "Message sent. We’ll be in touch soon.",
+      success: "Your message has been sent. We’ll be in touch soon.",
       error: "Couldn’t send your message. Please try again.",
       infoEmailLabel: "Email",
       infoEmailValue: "sales@ramakre.sa",
@@ -318,7 +329,7 @@ export const translations = {
       services: "الخدمات",
       about: "من نحن",
       projects: "مشاريعنا",
-      partners: "شركائنا الاستراتيجين",
+      partners: "شركاؤنا الاستراتيجيون",
       contact: "تواصل معنا",
     },
     hero: {
@@ -330,6 +341,8 @@ export const translations = {
       ctaPrimary: "احجز معاينة",
       ctaSecondary: "شاهد التفاصيل",
       scrollHint: "مرّر للدخول",
+      typewriterPrimary: "حيث يَرْمَكُ الاستقرار،",
+      typewriterSecondary: "تتحدّث الأصالة.",
       insideEyebrow: "أنت الآن داخل رَمَك",
       insideTitle: "لوبي يبيع الإحساس قبل الأمتار.",
       features: [
@@ -340,9 +353,14 @@ export const translations = {
     },
     services: {
       pill: "ماذا نقدّم",
-      titleBefore: "ست طرق نخدم بها ",
-      titleEm: "أنت.",
-      text: "من إمكانات الأرض إلى الشراكات، نرافق كل مرحلة من مراحل التطوير العقاري بدراسات واضحة ومفاهيم متكاملة وتنفيذ منضبط.",
+      titleBefore: "خدماتنا",
+      titleEm: "",
+      text: "",
+      imageAlt: "مشروع عقاري مميز",
+      portfolioLabel: "مشاريعنا",
+      ctaTitle: "جاهزون لتحويل فكرتك إلى مشروع؟",
+      ctaText: "لنصنع معاً شيئاً جميلاً وذا قيمة.",
+      ctaLabel: "ابدأ معنا",
       items: [
         {
           icon: "01",
@@ -523,30 +541,34 @@ export const translations = {
     },
     projects: {
       pill: "مشاريعنا",
-      title: "مشاريعنا.",
+      title: "مشاريعنا",
       titleBefore: "اكتشف قوة",
       titleEm: "مشاريعنا",
       items: [
         {
-          titleBefore: "ادخل إلى",
+          name: "مشروع الجزيرة",
+          titleBefore: "مشروع",
           titleEm: "الجزيرة",
-          text: "وجهة مصممة لقيمة تدوم — عمارة وتجربة ومكان يعملون معاً.",
+          text: "يقع مشروع الجزيرة في المدينة المنورة جنوب الحرم، ويُعد وجهة متكاملة تجمع بين الضيافة والتجارة والخدمات في مشروع عقاري ضخم متعدد الاستخدامات. يضم المشروع فندق الجزيرة، ومطعم البيك، ومجموعة متنوعة من المحلات التجارية المتاحة للإيجار، إلى جانب مواقف سيارات واسعة ومرافق متكاملة تلبي احتياجات الزوار والمستثمرين. ويتميز المشروع بموقعه الاستراتيجي وتصميمه الشامل، ليقدم تجربة عصرية قريبة من الحرم النبوي وفرصًا استثمارية وتجارية واعدة في قلب المدينة المنورة.",
           imageAlt: "مشروع الجزيرة العقاري",
           image: "/project/prod2.jpg",
         },
         {
-          titleBefore: "اكتشف قوة",
-          titleEm: "مشاريعنا",
-          text: "مرّر لتدخل الوجهات التي نصنعها — تجارية، سكنية، ومتعددة الاستخدامات.",
-          imageAlt: "صورة داخلية لمشروع عقاري مميز",
+          name: "مشروع أرض المغامرات",
+          titleBefore: "مشروع",
+          titleEm: "أرض المغامرات",
+          text: "يمثل مشروع أرض المغامرات في حديقة الملك فهد المركزية بالمدينة المنورة وجهة ترفيهية ورياضية متكاملة، صُممت لتجمع بين المغامرة والاستجمام في بيئة طبيعية نابضة بالحياة. يضم المشروع مجموعة متنوعة من الأنشطة والمرافق، تشمل ملاعب البادل، وجدار التسلق، ومناطق الألعاب، والمطاعم والكافيهات، بالإضافة إلى جلسات خارجية ومساحات طبيعية هادئة تناسب العائلات والزوار من مختلف الأعمار. ويقدم المشروع تجربة تجمع بين الرياضة والترفيه والطبيعة، ليكون من أبرز الوجهات الترفيهية الحديثة في المدينة المنورة.",
+          imageAlt: "مشروع أرض المغامرات الترفيهي",
           image: "/project/prod1.jpg",
         },
       ],
     },
     partners: {
       pill: "شركاؤنا الاستراتيجيون",
-      title: "شركاؤنا الاستراتيجيون.",
-      text: "هذا القسم قيد الإعداد.",
+      titleBefore: "",
+      titleEm: "شركاؤنا",
+      title: "شركاؤنا",
+      text: "نبني شراكات استراتيجية تقوم على الثقة وتكامل الخبرات، لنصنع معًا فرصًا أكبر وقيمة مستدامة.",
     },
     howWeWork: {
       pill: "كيف نعمل",

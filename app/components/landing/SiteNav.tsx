@@ -30,13 +30,12 @@ export default function SiteNav() {
 
   return (
     <nav
-      className={`nav${pastHero ? " is-past-hero" : ""}`}
+      className={`nav${pastHero ? " is-past-hero" : ""}${dir !== "rtl" ? " nav--rtl" : " nav--ltr"}`}
       aria-label="Primary"
     >
       <BrandLogo className="brand" variant="light" />
       <div className="nav-actions">
-      <LanguageToggle />
-
+        <LanguageToggle />
         <div className="nav-links" dir={dir}>
           <a href="#home">{t.nav.home}</a>
           <a href="#services">{t.nav.services}</a>

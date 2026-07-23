@@ -57,15 +57,15 @@ const SERVICE_ICONS = [
 ] as const;
 
 export default function ServicesSection() {
-  const { t, dir, locale } = useLanguage();
+  const { t, dir } = useLanguage();
   const s = t.services;
-  const isAr = locale === "ar";
 
   const services: AboutUsServiceItem[] = s.items.map((service, index) => ({
     icon: SERVICE_ICONS[index]?.icon ?? <Building2 className="w-6 h-6" />,
     secondaryIcon: SERVICE_ICONS[index]?.secondaryIcon,
     title: service.title,
     description: service.text,
+    // Physical columns stay fixed; RTL only affects text direction.
     position: index < 3 ? "left" : "right",
   }));
 
@@ -77,23 +77,15 @@ export default function ServicesSection() {
       eyebrow={s.pill}
       title={s.titleBefore}
       titleEm={s.titleEm}
-      description={s.text}
+      description=""
       services={services}
       imageSrc="/images/about/img1.webp"
-      imageAlt={isAr ? "مشروع عقاري مميز" : "Featured real estate project"}
-      portfolioLabel={isAr ? "مشاريعنا" : "Our Portfolio"}
+      imageAlt={s.imageAlt}
+      portfolioLabel={s.portfolioLabel}
       portfolioHref="#projects"
-      ctaTitle={
-        isAr
-          ? "جاهزون لتحويل فكرتك إلى مشروع؟"
-          : "Ready to transform your space?"
-      }
-      ctaText={
-        isAr
-          ? "لنصنع معاً شيئاً جميلاً وذا قيمة."
-          : "Let's create something beautiful together."
-      }
-      ctaLabel={isAr ? "ابدأ معنا" : "Get Started"}
+      ctaTitle={s.ctaTitle}
+      ctaText={s.ctaText}
+      ctaLabel={s.ctaLabel}
       ctaHref="#contact"
       showHeader
       showStats={false}

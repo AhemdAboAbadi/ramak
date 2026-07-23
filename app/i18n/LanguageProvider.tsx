@@ -11,6 +11,7 @@ import {
 import { translations, type Dictionary, type Locale } from "./translations";
 
 const STORAGE_KEY = "elysian-locale";
+const DEFAULT_LOCALE: Locale = "ar";
 
 type LanguageContextValue = {
   locale: Locale;
@@ -34,7 +35,7 @@ function applyDocumentLocale(locale: Locale) {
 }
 
 function readInitialLocale(): Locale {
-  if (typeof document === "undefined") return "en";
+  if (typeof document === "undefined") return DEFAULT_LOCALE;
   const htmlLang = document.documentElement.lang;
   if (htmlLang === "ar" || htmlLang === "en") return htmlLang;
   try {
@@ -43,7 +44,7 @@ function readInitialLocale(): Locale {
   } catch {
     /* ignore */
   }
-  return "en";
+  return DEFAULT_LOCALE;
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {

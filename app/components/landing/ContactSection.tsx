@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "../../i18n/LanguageProvider";
+import SectionHeader from "./SectionHeader";
 
 type Status = "idle" | "success" | "error";
 
@@ -59,8 +60,20 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="contact-section dark-section" dir={dir}>
-      <div className="mx-auto max-w-6xl">
+    <section
+      id="contact"
+      className="contact-section dark-section !px-0 !pt-0"
+      dir={dir}
+    >
+      <SectionHeader
+        title={
+          <>
+            {c.titleBefore}
+            <span className="text-[var(--brown)]">{c.titleEm}</span>
+          </>
+        }
+      />
+      <div className="mx-auto max-w-7xl px-4 pb-[clamp(80px,10vw,140px)] md:px-8 lg:px-10">
         <ContactCard
           title={c.cardTitle}
           description={c.cardDescription}
@@ -108,10 +121,11 @@ export default function ContactSection() {
                 name="email"
                 autoComplete="email"
                 required
+                dir="ltr"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder={c.emailPlaceholder}
-                className="h-11 md:h-12"
+                className="h-11 text-left md:h-12"
               />
             </div>
             <div className="flex flex-col gap-2">

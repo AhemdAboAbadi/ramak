@@ -5,6 +5,7 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import SectionHeader from "@/app/components/landing/SectionHeader";
 
 interface TimelineEntry {
   title: string;
@@ -14,11 +15,12 @@ interface TimelineEntry {
 export const Timeline = ({
   data,
   title,
-  description,
+  subtitle,
 }: {
   data: TimelineEntry[];
   title?: string;
   description?: string;
+  subtitle?: string;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,16 +43,12 @@ export const Timeline = ({
 
   return (
     <div
-      className="w-full bg-[#1f3d34] font-sans md:px-10"
+      className="w-full bg-[#1f3d34] font-sans"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto pt-10 md:pt-16 pb-0 px-4 md:px-8 lg:px-10">
-        <p className="text-lg md:text-8xl text-[#ffffff] max-w-4xl font-[32px]">
-          {title}
-        </p>
-      </div>
+      {title ? <SectionHeader title={title} subtitle={subtitle} /> : null}
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative mx-auto max-w-7xl px-4 pb-20 md:px-8 lg:px-10">
         {data.map((item, index) => (
           <div
             key={index}

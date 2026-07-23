@@ -108,7 +108,8 @@ export default function ScrollHero() {
           {/* <p>{t.hero.text}</p> */}
           <div className="hero-actions">
             <Typewriter
-              text="حيث يَرْمَكُ الاستقرار،"
+              key={`hero-primary-${dir}`}
+              text={t.hero.typewriterPrimary}
               speed={70}
               waitTime={1500}
               deleteSpeed={40}
@@ -136,8 +137,8 @@ export default function ScrollHero() {
         <div className="inside-panel" dir={dir}>
           {reveal > 0.05 ? (
             <Typewriter
-              key="inside-typewriter"
-              text="تتحدث الأصالة."
+              key={`inside-typewriter-${dir}`}
+              text={t.hero.typewriterSecondary}
               speed={70}
               waitTime={1500}
               deleteSpeed={40}

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { useLanguage } from "../../i18n/LanguageProvider";
+import SectionHeader from "./SectionHeader";
 
 export default function ProjectsSection() {
   const { t, dir } = useLanguage();
@@ -14,22 +15,20 @@ export default function ProjectsSection() {
       className="dark-section flex flex-col overflow-hidden w-full"
       dir={dir}
     >
-      {p.items.map((item, index) => (
-        <div key={item.image}>
+      <SectionHeader title={p.title} className="mb-0 pb-4 md:mb-0 md:pb-6" />
+
+      {p.items.map((item) => (
+        <div key={item.image} className="w-full">
           <ContainerScroll
+            animationEnd={0.45}
             titleComponent={
-              <>
-                {index === 0 ? (
-                  <div className="pill mx-auto mb-6">{p.pill}</div>
-                ) : null}
-                <h2 className="text-4xl font-semibold text-[var(--brown)]">
-                  {item.titleBefore}
-                  <br />
-                  <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none inline-block">
-                    {item.titleEm}
-                  </span>
-                </h2>
-              </>
+              <h3 className="text-4xl font-semibold text-[var(--brown)]">
+                {item.titleBefore}
+                <br />
+                <span className="mt-1 inline-block text-4xl font-bold leading-none md:text-[6rem]">
+                  {item.titleEm}
+                </span>
+              </h3>
             }
           >
             <Image
@@ -37,15 +36,20 @@ export default function ProjectsSection() {
               alt={item.imageAlt}
               height={1080}
               width={1920}
-              className="mx-auto rounded-2xl object-cover h-full w-full object-left-top"
+              className="mx-auto h-full w-full rounded-2xl object-cover object-center md:object-left-top"
               draggable={false}
               sizes="(max-width: 768px) 100vw, 1400px"
               priority={false}
             />
           </ContainerScroll>
-          <p className="mx-auto mt-6 mb-10 max-w-xl px-4 text-center text-base md:text-lg text-[rgba(247,247,244,0.72)]">
-            {item.text}
-          </p>
+          <div className="mx-auto mb-6 mt-2 flex max-w-6xl flex-col items-start gap-4 px-4 md:mb-10 md:mt-4 md:flex-row md:gap-10 lg:gap-14">
+            <h4 className="shrink-0 text-2xl font-bold leading-tight text-white md:max-w-[16rem] md:text-3xl lg:text-4xl">
+              {item.name}
+            </h4>
+            <p className="flex-1 text-start text-xl leading-relaxed text-[#ffffff] md:text-2xl">
+              {item.text}
+            </p>
+          </div>
         </div>
       ))}
     </section>

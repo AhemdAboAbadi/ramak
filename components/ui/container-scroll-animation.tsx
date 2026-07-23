@@ -6,9 +6,12 @@ import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 export const ContainerScroll = ({
   titleComponent,
   children,
+  /** Scroll progress (0–1) at which the animation finishes. Lower = faster. Default 0.5 */
+  animationEnd = 0.2,
 }: {
   titleComponent: string | React.ReactNode;
   children: React.ReactNode;
+  animationEnd?: number;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -31,17 +34,25 @@ export const ContainerScroll = ({
     return isMobile ? [0.7, 0.9] : [1.05, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const end = Math.min(Math.max(animationEnd, 0.05), 1);
+
+  const rotate = useTransform(scrollYProgress, [0, end], [20, 0], {
+    clamp: true,
+  });
+  const scale = useTransform(scrollYProgress, [0, end], scaleDimensions(), {
+    clamp: true,
+  });
+  const translate = useTransform(scrollYProgress, [0, end], [0, -100], {
+    clamp: true,
+  });
 
   return (
     <div
-      className="h-[72rem] md:h-[96rem] flex items-center justify-center relative p-2 md:p-12 lg:p-16"
+      className="relative flex h-[42rem] items-start justify-center px-2 pt-2 pb-[30px] md:h-[60rem] md:px-12 md:pt-4 md:pb-[1100px] lg:px-16"
       ref={containerRef}
     >
       <div
-        className="py-12 md:py-48 w-full relative"
+        className="relative w-full pt-2 pb-6 md:pt-4 md:pb-16"
         style={{
           perspective: "1000px",
         }}

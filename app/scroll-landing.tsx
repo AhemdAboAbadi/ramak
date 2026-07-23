@@ -33,8 +33,7 @@ export default function ScrollLanding() {
         <ServicesSection />
         <AboutSection />
         <ProjectsSection />
-        {/* <ProjectsSection /> */}
-        {/* <PartnersSection /> */}
+        <PartnersSection />
         {/* <HowWeWorkSection /> */}
         <ContactSection />
         <SiteFooter />
